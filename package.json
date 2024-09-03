@@ -1,0 +1,107 @@
+{
+  "name": "zyme",
+  "version": "1.0.0",
+  "description": "Explore dependecies at lightning speed",
+  "keywords": [
+    "dependecy",
+    "dependecy-check",
+    "dependecy-graph",
+    "dependecy-analysis",
+    "dependecy-tracking",
+    "monorepo-dependecy",
+    "monorepo-dependecy-check",
+    "monorepo-dependecy-graph",
+    "monorepo-dependecy-analysis",
+    "monorepo-dependecy-tracking",
+    "monorepo-dependecy-tracking"
+  ],
+  "repository": "mohsenshafiei/zyme",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "node": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.mjs",
+        "require": "./lib/index.cjs"
+      },
+      "default": {
+        "types": "./dist/browser.d.ts",
+        "import": "./dist/browser.mjs",
+        "require": "./dist/browser.cjs"
+      }
+    },
+    "./browser": {
+      "types": "./dist/browser.d.ts",
+      "import": "./dist/browser.mjs",
+      "require": "./dist/browser.cjs"
+    },
+    "./basic": {
+      "node": {
+        "types": "./dist/basic.d.ts",
+        "import": "./dist/basic.mjs",
+        "require": "./dist/basic.cjs"
+      },
+      "default": {
+        "types": "./dist/browser.d.ts",
+        "import": "./dist/browser.mjs",
+        "require": "./dist/browser.cjs"
+      }
+    },
+    "./core": {
+      "types": "./dist/core.d.ts",
+      "import": "./dist/core.mjs",
+      "require": "./dist/core.cjs"
+    },
+    "./utils": {
+      "types": "./dist/utils.d.ts",
+      "import": "./dist/utils.mjs",
+      "require": "./dist/utils.cjs"
+    }
+  },
+  "main": "./lib/index.cjs",
+  "module": "./dist/index.mjs",
+  "browser": "./dist/browser.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "lib",
+    "*.d.ts"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "postbuild": "chmod +x dist/zyme.cjs",
+    "dev": "tsup --watch",
+    "lint": "eslint . && prettier -c src examples test",
+    "lint:fix": "eslint . --fix && prettier -w src examples test",
+    "release": "pnpm test && pnpm build && changelogen --release --push && npm publish",
+    "test": "pnpm lint && pnpm vitest run --coverage"
+  },
+  "bin": {
+    "zyme": "./dist/zyme.cjs"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "@types/npm-registry-fetch": "^8.0.7",
+    "changelogen": "^0.5.5",
+    "eslint": "^9.6.0",
+    "ky": "^1.7.2",
+    "prettier": "^3.3.2",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.3",
+    "vitest": "^1.6.0"
+  },
+  "dependencies": {
+    "consola": "^3.2.3",
+    "execa": "^9.3.1",
+    "find-up": "^7.0.0",
+    "npm-registry-fetch": "^17.1.0",
+    "ora": "^8.1.0",
+    "read-pkg": "^9.0.1",
+    "terminal-link": "^3.0.0"
+  },
+  "engines": {
+    "node": "^14.18.0 || >=16.10.0"
+  },
+  "packageManager": "pnpm@9.5.0"
+}
