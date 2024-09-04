@@ -2,97 +2,70 @@
   "name": "zyme",
   "version": "1.0.0",
   "description": "⚡️ Onboarding at Lightning Speed",
+  "imports": {
+    "#*": "./src/*"
+  },
   "keywords": [
-    "dependecy",
-    "dependecy-check",
-    "dependecy-graph",
-    "dependecy-analysis",
-    "dependecy-tracking",
-    "monorepo-dependecy",
-    "monorepo-dependecy-check",
-    "monorepo-dependecy-graph",
-    "monorepo-dependecy-analysis",
-    "monorepo-dependecy-tracking",
-    "monorepo-dependecy-tracking"
+    "onboarding",
+    "open-source-onboarding",
+    "open-source-contribution",
+    "developer-onboarding",
+    "contribution-guide"
   ],
-  "repository": "mohsenshafiei/zyme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mohsenshafiei/zyme.git"
+  },
   "license": "MIT",
   "type": "module",
-  "exports": {
-    ".": {
-      "node": {
-        "types": "./dist/index.d.ts",
-        "import": "./dist/index.mjs",
-        "require": "./lib/index.cjs"
-      },
-      "default": {
-        "types": "./dist/browser.d.ts",
-        "import": "./dist/browser.mjs",
-        "require": "./dist/browser.cjs"
-      }
-    },
-    "./browser": {
-      "types": "./dist/browser.d.ts",
-      "import": "./dist/browser.mjs",
-      "require": "./dist/browser.cjs"
-    },
-    "./basic": {
-      "node": {
-        "types": "./dist/basic.d.ts",
-        "import": "./dist/basic.mjs",
-        "require": "./dist/basic.cjs"
-      },
-      "default": {
-        "types": "./dist/browser.d.ts",
-        "import": "./dist/browser.mjs",
-        "require": "./dist/browser.cjs"
-      }
-    },
-    "./core": {
-      "types": "./dist/core.d.ts",
-      "import": "./dist/core.mjs",
-      "require": "./dist/core.cjs"
-    },
-    "./utils": {
-      "types": "./dist/utils.d.ts",
-      "import": "./dist/utils.mjs",
-      "require": "./dist/utils.cjs"
-    }
-  },
-  "main": "./lib/index.cjs",
+  "exports": null,
+  "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
-  "browser": "./dist/browser.mjs",
   "types": "./dist/index.d.ts",
   "files": [
     "dist",
-    "lib",
     "*.d.ts"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "tsc && node ./build.js",
+    "build:local": "pnpm build -- --local",
+    "build:prod": "pnpm build -- --prod",
+    "build:publish": "pnpm build -- --publish",
     "postbuild": "chmod +x dist/zyme.cjs",
-    "dev": "tsup --watch",
-    "lint": "eslint . && prettier -c src examples test",
+    "dev": "pnpm link --global && tsup --watch",
+    "package": "pkg --compress GZip .",
+    "lint": "eslint . && prettier -c src",
     "lint:fix": "eslint . --fix && prettier -w src examples test",
     "release": "pnpm test && pnpm build && changelogen --release --push && npm publish",
-    "test": "pnpm lint && pnpm vitest run --coverage"
+    "test": "TEST=1 vitest run",
+    "coverage": "TEST=1 vitest run --coverage",
+    "pretty": "prettier --write ./src",
+    "clean": "node ./scripts/clean.js"
   },
   "bin": {
     "zyme": "./dist/zyme.cjs"
   },
   "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "4.3.0",
     "@types/node": "^20.14.10",
     "@types/npm-registry-fetch": "^8.0.7",
     "changelogen": "^0.5.5",
+    "esbuild": "0.23.1",
     "eslint": "^9.6.0",
+    "eslint-config-unjs": "0.3.2",
+    "knip": "5.29.2",
     "ky": "^1.7.2",
+    "lint-staged": "15.2.10",
+    "picocolors": "1.1.0",
     "prettier": "^3.3.2",
+    "rimraf": "6.0.1",
+    "taze": "0.16.7",
     "tsup": "^8.2.4",
     "typescript": "^5.5.3",
-    "vitest": "^1.6.0"
+    "vitest": "^1.6.0",
+    "yargs": "17.7.2"
   },
   "dependencies": {
-    "consola": "^3.2.3",
     "execa": "^9.3.1",
     "find-up": "^7.0.0",
     "npm-registry-fetch": "^17.1.0",
@@ -103,5 +76,11 @@
   "engines": {
     "node": "^14.18.0 || >=16.10.0"
   },
-  "packageManager": "pnpm@9.5.0"
+  "pkg": {
+    "outputPath": "./package/"
+  },
+  "packageManager": "pnpm@9.5.0",
+  "publishConfig": {
+    "access": "public"
+  }
 }
