@@ -23,6 +23,7 @@ node_modules
 *.local
 dev-dist
 coverage
+tsconfig.tsbuildinfo
 
 # Editor directories and files
 **/*/.vscode/*
