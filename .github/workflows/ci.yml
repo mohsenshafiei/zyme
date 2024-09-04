@@ -1,0 +1,35 @@
+name: zyme CI
+
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
+
+jobs:
+  install:
+      runs-on: ubuntu-latest 
+      steps:
+        - name: Checkout code
+          run: actions/checkout@v3
+      
+        - name: Install dependencies
+          run: npm i
+  test:
+      runs-on: ubuntu-latest 
+      needs: install
+      steps:
+        - name: Checkout code
+          run: actions/checkout@v3
+      
+        - name: test
+          run: npm run test
+  build:
+      runs-on: ubuntu-latest 
+      needs: test
+      steps:
+        - name: Checkout code
+          run: actions/checkout@v3
+      
+        - name: Build Project
+          run: npm build
