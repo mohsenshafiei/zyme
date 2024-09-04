@@ -1,11 +1,13 @@
 export type ColorMethod = (text: string) => string;
 
-export interface Logger {
+export type Bold = {
   [key: string]: ColorMethod;
+};
+
+export interface Logger {
   // @ts-ignore
-  bold: {
-    [key: string]: ColorMethod;
-  };
+  bold: Bold;
+  [key: string]: ColorMethod;
 }
 
 export interface GitHubRepoResponse {

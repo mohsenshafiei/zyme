@@ -1,11 +1,9 @@
-import ky from "ky";
-import cnsl from "../cnsl";
+import cnsl from '#/lib/cnsl';
+import { GitHubRepoResponse, StarCache } from '#types';
+import ky from 'ky';
 
-// Types
-import { GitHubRepoResponse, StarCache } from "../../types";
-
-const BASE_NPM_URL = "https://registry.npmjs.org/";
-const BASE_GH_URL = "https://api.github.com";
+const BASE_NPM_URL = 'https://registry.npmjs.org/';
+const BASE_GH_URL = 'https://api.github.com';
 
 const starCache: StarCache = {};
 
@@ -19,11 +17,11 @@ export async function getGitHubStars(packageName: string): Promise<any> {
       .get(`${BASE_NPM_URL}/${packageName}`)
       .json<any>();
 
-    let repositoryUrl: string = packageInfo.repository?.url || "";
+    let repositoryUrl: string = packageInfo.repository?.url || '';
 
-    repositoryUrl = repositoryUrl.replace(/\.git$/, "");
+    repositoryUrl = repositoryUrl.replace(/\.git$/, '');
 
-    const repoMatch = repositoryUrl.match(/github\.com\/([^\/]+)\/([^\/]+)$/);
+    const repoMatch = repositoryUrl.match(/github\.com\/([^/]+)\/([^/]+)$/);
 
     if (repoMatch && repoMatch[1] && repoMatch[2]) {
       const owner = repoMatch[1];
@@ -34,16 +32,15 @@ export async function getGitHubStars(packageName: string): Promise<any> {
         .json<GitHubRepoResponse>();
 
       const stars = response.stargazers_count;
-      const result = `${stars} ${cnsl.yellowGreen("★ stars")}`;
+      const result = `${stars} ${cnsl.yellowGreen('★ stars')}`;
 
       starCache[packageName] = result;
 
       return result;
     } else {
-      return "";
+      return '';
     }
-  } catch (error) {
-    // @ts-ignore
-    return "NA";
+  } catch {
+    return 'NA';
   }
 }
