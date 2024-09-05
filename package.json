@@ -31,7 +31,6 @@
     "build:local": "pnpm build -- --local",
     "build:prod": "pnpm build -- --prod",
     "build:publish": "pnpm build -- --publish",
-    "postbuild": "chmod +x dist/zyme.cjs",
     "dev": "pnpm link --global && tsup --watch",
     "package": "pkg --compress GZip .",
     "lint": "eslint . && prettier -c src",
