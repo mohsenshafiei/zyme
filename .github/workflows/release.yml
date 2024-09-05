@@ -3,16 +3,16 @@ name: Create release
 on:
   push:
     tags:
-      - "v*"
-
-permissions:
-  contents: write
-
+      - 'v*'
 
 jobs:
   release:
     name: Create Release
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -34,12 +34,3 @@ jobs:
             $(cat changelog.md)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # - name: Upload Release Assets
-      #   if: false
-      #   uses: actions/upload-release-asset@v1
-      #   with:
-      #     upload_url: ${{ steps.create_release.outputs.upload_url }}
-      #     asset_path: ./path/to/your/asset
-      #     asset_name: your-asset-name
-      #     asset_content_type: application/octet-stream
