@@ -1,27 +1,35 @@
 name: ci
 
-on:
-  push:
-    branches:
-      - feat/git-actions
-  pull_request:
-    branches: [ $default-branch ]
+on: [push, pull_request]
 
 jobs:
   ci: 
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [15.x, 16.x, 18.x , 20.x]
+
     steps:
-      - uses: actions/checkout@v4
-        with: 
-              ref: feat/git-actions
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - run: corepack enable
-      - uses: actions/setup-node@v4
+
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: "pnpm"     
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"    
+ 
       - run: pnpm install
       - run: pnpm lint
       - run: pnpm build
       - run: pnpm vitest --coverage
-      - uses: codecov/codecov-action@v4
+
+      - name: "Coverage"
+        uses: codecov/codecov-action@v4
+        # Add token later
+        # env:
+        # use $ before {}   CODECOV_TOKEN: {{ secrets.CODECOV_TOKEN }}
  
