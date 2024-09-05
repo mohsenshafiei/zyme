@@ -35,11 +35,11 @@
     "dev": "pnpm link --global && tsup --watch",
     "package": "pkg --compress GZip .",
     "lint": "eslint . && prettier -c src",
-    "lint:fix": "eslint . --fix && prettier -w src examples test",
+    "lint:fix": "eslint . --fix && prettier -w src",
     "release": "pnpm test && pnpm build && changelogen --release --push && npm publish",
     "test": "TEST=1 vitest run",
     "coverage": "TEST=1 vitest run --coverage",
-    "pretty": "prettier --write ./src",
+    "pretty": "prettier --write src",
     "clean": "node ./scripts/clean.js"
   },
   "bin": {
@@ -49,6 +49,7 @@
     "@trivago/prettier-plugin-sort-imports": "4.3.0",
     "@types/node": "^20.14.10",
     "@types/npm-registry-fetch": "^8.0.7",
+    "@vitest/coverage-v8": "2.0.5",
     "changelogen": "^0.5.5",
     "esbuild": "0.23.1",
     "eslint": "^9.6.0",

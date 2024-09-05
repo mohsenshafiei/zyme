@@ -2,13 +2,8 @@
 import cnsl from '#lib/cnsl';
 import { getGitHubStars } from '#lib/gh';
 import { fetchPackageInfo } from '#lib/npm';
+import { transformIf } from '#lib/utils';
 import type { PackageJson } from 'read-pkg';
-
-const transformIf = <T, U>(
-  condition: boolean,
-  value: T,
-  transform: (v: T) => U,
-): T | U => (condition ? transform(value) : value);
 
 const formatDetails = (info: any, stars: string | number) =>
   [
