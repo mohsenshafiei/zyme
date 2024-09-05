@@ -78,7 +78,7 @@
     "test": "pnpm lint && pnpm vitest run --coverage"
   },
   "bin": {
-    "zyme": "dist/zyme.cjs"
+    "zyme": "./dist/zyme.cjs"
   },
   "devDependencies": {
     "@types/node": "^20.14.10",
