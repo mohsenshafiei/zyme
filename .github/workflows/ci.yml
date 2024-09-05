@@ -1,4 +1,4 @@
-name: zyme CI
+name: ci
 
 on:
   push:
@@ -8,34 +8,20 @@ on:
     branches: [ $default-branch ]
 
 jobs:
-  install:
-      runs-on: ubuntu-latest 
-      steps:
-        - uses: actions/checkout@v4
-          with: 
-                ref: feat/git-actions
-      
-        - name: Install dependencies
-          run: npm i
-        - name: check lint
-          run: npm run lint
-  test:
-      runs-on: ubuntu-latest 
-      needs: install
-      steps:
-        - uses: actions/checkout@v4
-          with: 
-                ref: feat/git-actions
-      
-        - name: test
-          run: npm run test
-  build:
-      runs-on: ubuntu-latest 
-      needs: test
-      steps:
-        - uses: actions/checkout@v4
-          with: 
-                ref: feat/git-actions
-      
-        - name: Build Project
-          run: npm build
+  ci: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: 
+              ref: feat/git-actions
+      - run: corepack enable
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"     
+      - run: pnpm install
+      - run: pnpm lint
+      - run: pnpm build
+      - run: pnpm vitest --coverage
+      - uses: codecov/codecov-action@v4
+ 
