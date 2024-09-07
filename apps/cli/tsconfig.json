@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "#*": ["src/*"]
+    },
+    "rootDir": ".",
+    "allowJs": true,
+    "checkJs": false,
+    "noEmit": true
+  },
+  "include": ["src/**/*", "env.d.ts", "test/**/*"],
+  "exclude": ["node_modules", "**/*.test.ts"],
+  "extends": "@zyme/tsconfig/base.json"
+}
