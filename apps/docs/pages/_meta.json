@@ -1,0 +1,14 @@
+{
+  "index": "Introduction",
+  "features": "Features",
+  "about": {
+    "title": "About",
+    "type": "page"
+  },
+  "contact": {
+    "title": "Contact ↗",
+    "type": "page",
+    "href": "",
+    "newWindow": true
+  }
+}
