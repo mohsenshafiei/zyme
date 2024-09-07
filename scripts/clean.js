@@ -1,6 +1,6 @@
-import ora from 'ora';
-import pc from 'picocolors';
-import { rimraf } from 'rimraf';
+import ora from "ora";
+import pc from "picocolors";
+import { rimraf } from "rimraf";
 
 const removeDirectory = async (path, options) => {
   const spinner = ora(`Removing ${path}...`).start();
@@ -16,6 +16,6 @@ const removeDirectory = async (path, options) => {
   }
 };
 
-removeDirectory('node_modules');
-removeDirectory('dist');
-removeDirectory('coverage');
+removeDirectory("node_modules");
+removeDirectory("dist");
+removeDirectory("coverage");

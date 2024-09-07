@@ -1,0 +1,26 @@
+packages:
+  - apps/**
+  - packages/**
+catalog:
+  '@types/node': ^20.14.10
+  '@types/npm-registry-fetch': ^8.0.7
+  '@vitest/coverage-v8': ^1.6.0
+  'changelogen': ^0.5.5
+  'esbuild': 0.23.1
+  'knip': 5.29.2
+  'ky': ^1.7.2
+  'lint-staged': 15.2.10
+  'picocolors': 1.1.0
+  'rimraf': 6.0.1
+  'taze': 0.16.7
+  'tsup': ^8.2.4
+  'turbo': 2.1.1
+  'typescript': ^5.5.3
+  'vitest': ^1.6.0
+  'yargs': 17.7.2
+  'execa': ^9.3.1
+  'find-up': ^7.0.0
+  'npm-registry-fetch': ^17.1.0
+  'ora': ^8.1.0
+  'read-pkg': ^9.0.1
+  'terminal-link': ^3.0.
