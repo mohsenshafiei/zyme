@@ -39,7 +39,8 @@
     "test": "TEST=1 vitest run",
     "coverage": "TEST=1 vitest run --coverage",
     "pretty": "prettier --write src",
-    "clean": "node ./scripts/clean.js"
+    "clean": "node ./scripts/clean.js",
+    "prepare": "husky"
   },
   "bin": {
     "zyme": "./dist/zyme.cjs"
@@ -53,6 +54,7 @@
     "esbuild": "0.23.1",
     "eslint": "^9.6.0",
     "eslint-config-unjs": "0.3.2",
+    "husky": "9.1.5",
     "knip": "5.29.2",
     "ky": "^1.7.2",
     "lint-staged": "15.2.10",

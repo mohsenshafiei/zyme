@@ -51,6 +51,9 @@ importers:
       eslint-config-unjs:
         specifier: 0.3.2
         version: 0.3.2(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4)
+      husky:
+        specifier: 9.1.5
+        version: 9.1.5
       knip:
         specifier: 5.29.2
         version: 5.29.2(@types/node@20.16.3)(typescript@5.5.4)
@@ -1402,6 +1405,11 @@ packages:
   human-signals@8.0.0:
     resolution: {integrity: sha512-/1/GPCpDUCCYwlERiYjxoczfP0zfvZMU/OWgQPMya9AbAE24vseigFdhAMObpc8Q4lc/kjutPfUddDYyAmejnA==}
     engines: {node: '>=18.18.0'}
+
+  husky@9.1.5:
+    resolution: {integrity: sha512-rowAVRUBfI0b4+niA4SJMhfQwc107VLkBUgEYYAOQAbqDCnra1nYh83hF/MDmhYs9t9n1E3DuKOrs2LYNC+0Ag==}
+    engines: {node: '>=18'}
+    hasBin: true
 
   iconv-lite@0.6.3:
     resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
@@ -4051,6 +4059,8 @@ snapshots:
   human-signals@5.0.0: {}
 
   human-signals@8.0.0: {}
+
+  husky@9.1.5: {}
 
   iconv-lite@0.6.3:
     dependencies:
