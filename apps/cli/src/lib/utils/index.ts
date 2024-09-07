@@ -1,5 +1,3 @@
-const line = console.log;
-
 export const transformIf = <T, U>(
   condition: boolean,
   value: T,

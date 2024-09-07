@@ -1,8 +1,8 @@
 {
   "lint-staged": {
-    "*.js": "eslint --fix",
-    "*.ts": "eslint --fix",
-    "*.json": "prettier --write",
-    "*.md": "prettier --write"
+    "*.js": "biome check --write --diagnostic-level=error",
+    "*.ts": "biome check --write --diagnostic-level=error",
+    "*.json": "biome check --write --diagnostic-level=error",
+    "*.md": "biome check --write --diagnostic-level=error"
   }
 }

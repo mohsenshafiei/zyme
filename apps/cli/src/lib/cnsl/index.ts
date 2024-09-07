@@ -1,5 +1,5 @@
-import { colors } from '#lib/colors';
-import { Logger } from '#types';
+import { colors } from "#lib/colors";
+import type { Logger } from "#types";
 
 function applyStyle(style: string, text: string): string {
   return `${style}${text}\u001B[0m`;

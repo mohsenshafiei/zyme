@@ -15,3 +15,18 @@ export interface GitHubRepoResponse {
 }
 
 export type StarCache = { [key: string]: string };
+
+export type PackageInfo = {
+  repository: {
+    url: string;
+  };
+  description: string;
+  author: {
+    name: string;
+    url: string;
+  };
+  name: string;
+  "dist-tags": {
+    latest: string;
+  };
+};

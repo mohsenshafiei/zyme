@@ -3,16 +3,17 @@ import { hideBin } from "yargs/helpers";
 
 async function getDevDependencies() {
   try {
-    const { readPackage } = await import('read-pkg');
+    const { readPackage } = await import("read-pkg");
     const packageJson = await readPackage();
-    const dependecies = packageJson.devDependencies ? Object.keys(packageJson.devDependencies) : [];
+    const dependecies = packageJson.devDependencies
+      ? Object.keys(packageJson.devDependencies)
+      : [];
     return dependecies;
   } catch (error) {
-    console.error('Error reading package.json:', error);
+    console.error("Error reading package.json:", error);
     return [];
   }
 }
-
 
 const localProdBuildEnvs = {};
 const stagingBuildEnvs = {};
@@ -24,8 +25,8 @@ const localEnvs = {
 
 const argv = hideBin(process.argv);
 const isLocal = argv.includes("--prod");
-const isProd = argv.includes("--prod")
-const isPublish = argv.includes("--publish")
+const isProd = argv.includes("--prod");
+const isPublish = argv.includes("--publish");
 
 let define;
 if (isLocal) {
@@ -52,5 +53,4 @@ async function builder() {
   });
 }
 
-builder()
-
+await builder();

@@ -7,7 +7,7 @@ export default defineConfig({
   format: "cjs",
   sourcemap: true,
   clean: true,
-  esbuildOptions(options, context) {
+  esbuildOptions(options) {
     options.platform = "node";
   },
 });

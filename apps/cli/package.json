@@ -1,0 +1,71 @@
+{
+  "name": "zyme",
+  "version": "1.0.0",
+  "description": "⚡️ Onboarding at Lightning Speed",
+  "imports": {
+    "#*": "./src/*"
+  },
+  "keywords": ["onboarding-cli", "zyme-cli"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mohsenshafiei/zyme.git",
+    "directory": "apps/cli"
+  },
+  "license": "MIT",
+  "type": "module",
+  "exports": null,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": ["dist", "*.d.ts"],
+  "scripts": {
+    "build": "tsc && node ./build.js",
+    "build:local": "pnpm build -- --local",
+    "build:prod": "pnpm build -- --prod",
+    "build:publish": "pnpm build -- --publish",
+    "dev": "pnpm link --global && tsup --watch",
+    "package": "pkg --compress GZip .",
+    "release": "pnpm test && pnpm build && changelogen --release --push && npm publish",
+    "test": "TEST=1 vitest run",
+    "coverage": "TEST=1 vitest run --coverage",
+    "clean": "node ./scripts/clean.js"
+  },
+  "bin": {
+    "zyme": "./dist/zyme.cjs"
+  },
+  "devDependencies": {
+    "@zyme/tsconfig": "workspace:*",
+    "@types/node": "catalog:",
+    "@types/npm-registry-fetch": "catalog:",
+    "@vitest/coverage-v8": "catalog:",
+    "changelogen": "catalog:",
+    "esbuild": "catalog:",
+    "knip": "catalog:",
+    "ky": "catalog:",
+    "lint-staged": "catalog:",
+    "picocolors": "catalog:",
+    "rimraf": "catalog:",
+    "taze": "catalog:",
+    "tsup": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:",
+    "yargs": "catalog:"
+  },
+  "dependencies": {
+    "execa": "catalog:",
+    "find-up": "catalog:",
+    "npm-registry-fetch": "catalog:",
+    "ora": "catalog:",
+    "read-pkg": "catalog:"
+  },
+  "engines": {
+    "node": "^14.18.0 || >=16.10.0"
+  },
+  "pkg": {
+    "outputPath": "./package/"
+  },
+  "packageManager": "pnpm@9.5.0",
+  "publishConfig": {
+    "access": "public"
+  }
+}
