@@ -18,7 +18,8 @@
       "build-ncc",
       "generated",
       "*.py",
-      "./apps/ai/**"
+      "./apps/ai/**",
+      "./web/tsconfig*"
     ],
     "rules": {
       "suspicious": {
@@ -125,7 +126,8 @@
       ".vscode",
       ".all-contributorsrc",
       "**/__testfixtures__/**",
-      ".turbo"
+      ".turbo",
+      "./web/tsconfig*"
     ]
   },
   "organizeImports": {
