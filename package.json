@@ -37,9 +37,6 @@
     "lint:linter": "biome lint --write --diagnostic-level=error .",
     "prepare": "husky"
   },
-  "bin": {
-    "zyme": "./dist/zyme.cjs"
-  },
   "devDependencies": {
     "@commitlint/cli": "19.4.1",
     "@commitlint/config-conventional": "19.4.1",

@@ -1,0 +1,27 @@
+import { Args, Command, Flags } from "@oclif/core";
+
+export default class Logout extends Command {
+  static override args = {
+    file: Args.string({ description: "file to read" }),
+  };
+
+  static override description =
+    "Logs the user out of their zyme account, removing access to personalized settings.";
+
+  static override examples = ["<%= config.bin %> <%= command.id %>"];
+
+  static override flags = {
+    force: Flags.boolean({
+      char: "f",
+      description: "Force logout without confirmation",
+    }),
+  };
+
+  public async run(): Promise<void> {
+    const { args, flags } = await this.parse(Logout);
+
+    if (args.file && flags.force) {
+      this.log(`you input --force and --file: ${args.file}`);
+    }
+  }
+}

@@ -1,0 +1,26 @@
+import { Args, Command, Flags } from "@oclif/core";
+
+export default class Login extends Command {
+  static override args = {
+    file: Args.string({ description: "file to read" }),
+  };
+
+  static override description =
+    "Logs the user into their zyme account, allowing access to personalized settings and features.";
+
+  static override examples = ["<%= config.bin %> <%= command.id %>"];
+
+  static override flags = {
+    username: Flags.string({ char: "u", description: "Username for login" }),
+    password: Flags.string({ char: "p", description: "Password for login" }),
+    token: Flags.string({ description: "Login using an authentication token" }),
+  };
+
+  public async run(): Promise<void> {
+    const { args, flags } = await this.parse(Login);
+
+    if (args.file && flags.force) {
+      this.log(`you input --force and --file: ${args.file}`);
+    }
+  }
+}
