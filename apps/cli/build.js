@@ -45,9 +45,9 @@ async function builder() {
     minify: true,
     platform: "node",
     target: "node18",
-    format: "cjs",
+    format: "esm",
     legalComments: "inline",
-    outfile: "./dist/z.cjs",
+    outfile: "./dist/index.js",
     define: define,
     external: await getDevDependencies(),
   });

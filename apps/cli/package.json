@@ -1,71 +1,80 @@
 {
   "name": "zyme",
-  "version": "1.0.0",
   "description": "⚡️ Onboarding at Lightning Speed",
+  "version": "1.0.5",
+  "author": "mohsenshafiei",
   "imports": {
     "#*": "./src/*"
   },
+  "exports": null,
   "keywords": ["onboarding-cli", "zyme-cli"],
   "repository": {
     "type": "git",
     "url": "https://github.com/mohsenshafiei/zyme.git",
     "directory": "apps/cli"
   },
-  "license": "MIT",
-  "type": "module",
-  "exports": null,
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "files": ["dist", "*.d.ts"],
-  "scripts": {
-    "build": "tsc && node ./build.js",
-    "build:local": "pnpm build -- --local",
-    "build:prod": "pnpm build -- --prod",
-    "build:publish": "pnpm build -- --publish",
-    "dev": "pnpm link --global && tsup --watch",
-    "package": "pkg --compress GZip .",
-    "release": "pnpm test && pnpm build && changelogen --release --push && npm publish",
-    "test": "TEST=1 vitest run",
-    "coverage": "TEST=1 vitest run --coverage",
-    "clean": "node ./scripts/clean.js"
-  },
-  "bin": {
-    "zyme": "./dist/zyme.cjs"
+  "bin": "./bin/run.js",
+  "bugs": "https://github.com/apps/zyme/issues",
+  "dependencies": {
+    "@oclif/core": "^4",
+    "@oclif/plugin-help": "^6",
+    "@oclif/plugin-plugins": "^5"
   },
   "devDependencies": {
-    "@zyme/tsconfig": "workspace:*",
     "@types/node": "catalog:",
     "@types/npm-registry-fetch": "catalog:",
     "@vitest/coverage-v8": "catalog:",
+    "@zyme/tsconfig": "workspace:*",
     "changelogen": "catalog:",
+    "concurrently": "9.0.0",
     "esbuild": "catalog:",
     "knip": "catalog:",
     "ky": "catalog:",
-    "lint-staged": "catalog:",
-    "picocolors": "catalog:",
-    "rimraf": "catalog:",
-    "taze": "catalog:",
+    "oclif": "^4",
+    "shx": "^0.3.3",
+    "ts-node": "^10",
     "tsup": "catalog:",
     "typescript": "catalog:",
     "vitest": "catalog:",
+    "wait-on": "8.0.1",
     "yargs": "catalog:"
   },
-  "dependencies": {
-    "execa": "catalog:",
-    "find-up": "catalog:",
-    "npm-registry-fetch": "catalog:",
-    "ora": "catalog:",
-    "read-pkg": "catalog:"
-  },
   "engines": {
-    "node": "^14.18.0 || >=16.10.0"
+    "node": ">=18.0.0"
   },
-  "pkg": {
-    "outputPath": "./package/"
+  "files": ["/bin", "/dist", "/oclif.manifest.json"],
+  "homepage": "https://github.com/apps/zyme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "type": "module",
+  "oclif": {
+    "bin": "zyme",
+    "dirname": "zyme",
+    "commands": "./dist/commands",
+    "plugins": ["@oclif/plugin-help", "@oclif/plugin-plugins"],
+    "topicSeparator": " ",
+    "topics": {
+      "auth": {
+        "description": "Logs the user into their zyme account, allowing access to personalized settings and features."
+      }
+    }
   },
-  "packageManager": "pnpm@9.5.0",
-  "publishConfig": {
-    "access": "public"
-  }
+  "scripts": {
+    "build": "shx rm -rf dist && tsc -b && node build.js",
+    "build:local": "pnpm build -- --local",
+    "build:prod": "pnpm build -- --prod",
+    "build:publish": "pnpm build -- --publish",
+    "dev": "pnpm link && npm link --global && tsup --watch",
+    "package": "pkg --compress GZip .",
+    "release": "pnpm test && pnpm build && changelogen --release --push && npm publish",
+    "lint": "biome check .",
+    "coverage": "TEST=1 vitest run --coverage",
+    "clean": "node ./scripts/clean.js",
+    "test": "TEST=1 vitest run",
+    "postpack": "shx rm -f oclif.manifest.json",
+    "posttest": "pnpm run lint",
+    "prepack": "oclif manifest && oclif readme",
+    "version": "oclif readme && git add README.md"
+  },
+  "types": "dist/index.d.ts"
 }

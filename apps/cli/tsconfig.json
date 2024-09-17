@@ -4,12 +4,20 @@
     "paths": {
       "#*": ["src/*"]
     },
-    "rootDir": ".",
-    "allowJs": true,
-    "checkJs": false,
-    "noEmit": true
+    "module": "ESNext",
+    "target": "ESNext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "outDir": "dist",
+    "noEmit": false,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/**/*", "env.d.ts", "test/**/*"],
-  "exclude": ["node_modules", "**/*.test.ts"],
-  "extends": "@zyme/tsconfig/base.json"
+  "include": ["src/**/*"],
+  "exclude": ["dist"],
+  "ts-node": {
+    "esm": true
+  }
 }
