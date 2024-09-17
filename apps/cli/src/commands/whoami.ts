@@ -1,12 +1,16 @@
 import { Args, Command, Flags } from "@oclif/core";
 
+const en = {
+  description:
+    "Displays the currently logged-in user and their account details in zyme.",
+};
+
 export default class Whoami extends Command {
   static override args = {
     file: Args.string({ description: "file to read" }),
   };
 
-  static override description =
-    "Displays the currently logged-in user and their account details in zyme.";
+  static override description = en.description;
 
   static override examples = ["<%= config.bin %> <%= command.id %>"];
 
@@ -19,9 +23,6 @@ export default class Whoami extends Command {
 
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(Whoami);
-
-    if (args.file && flags.force) {
-      this.log(`you input --force and --file: ${args.file}`);
-    }
+    this.log("Not Implemented Yet", args, flags);
   }
 }

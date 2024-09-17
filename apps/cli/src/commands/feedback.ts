@@ -1,12 +1,16 @@
 import { Args, Command, Flags } from "@oclif/core";
 
+const en = {
+  description:
+    "Collects user feedback on zyme or the repository, providing a way to improve based on user input.",
+};
+
 export default class Feedback extends Command {
   static override args = {
     file: Args.string({ description: "file to read" }),
   };
 
-  static override description =
-    "Collects user feedback on zyme or the repository, providing a way to improve based on user input.";
+  static override description = en.description;
 
   static override examples = ["<%= config.bin %> <%= command.id %>"];
 
@@ -27,10 +31,6 @@ export default class Feedback extends Command {
   };
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(Feedback);
-
-    const name = flags.name ?? "world";
-    if (args.file && flags.force) {
-      this.log(`you input --force and --file: ${args.file}`);
-    }
+    this.log("Not Implemented Yet", args, flags);
   }
 }

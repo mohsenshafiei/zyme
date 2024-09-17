@@ -1,12 +1,16 @@
 import { Args, Command, Flags } from "@oclif/core";
 
+const en = {
+  description:
+    "Displays and manages environment variables associated with the current project, allowing you to understand how different environments affect the repo.",
+};
+
 export default class Env extends Command {
   static override args = {
     file: Args.string({ description: "file to read" }),
   };
 
-  static override description =
-    "Displays and manages environment variables associated with the current project, allowing you to understand how different environments affect the repo.";
+  static override description = en.description;
 
   static override examples = ["<%= config.bin %> <%= command.id %>"];
 
@@ -28,10 +32,6 @@ export default class Env extends Command {
 
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(Env);
-
-    const name = flags.name ?? "world";
-    if (args.file && flags.force) {
-      this.log(`you input --force and --file: ${args.file}`);
-    }
+    this.log("Not Implemented Yet", args, flags);
   }
 }

@@ -1,7 +1,7 @@
 {
   "name": "zyme",
   "description": "⚡️ Onboarding at Lightning Speed",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "author": "mohsenshafiei",
   "imports": {
     "#*": "./src/*"
@@ -13,9 +13,7 @@
     "url": "https://github.com/mohsenshafiei/zyme.git",
     "directory": "apps/cli"
   },
-  "bin": {
-    "zyme": "./bin/run.cjs"
-  },
+  "bin": "./bin/run.js",
   "bugs": "https://github.com/apps/zyme/issues",
   "dependencies": {
     "@oclif/core": "^4",
@@ -56,8 +54,8 @@
     "plugins": ["@oclif/plugin-help", "@oclif/plugin-plugins"],
     "topicSeparator": " ",
     "topics": {
-      "config": {
-        "description": "manage heroku config variables"
+      "auth": {
+        "description": "Logs the user into their zyme account, allowing access to personalized settings and features."
       }
     }
   },
@@ -66,7 +64,7 @@
     "build:local": "pnpm build -- --local",
     "build:prod": "pnpm build -- --prod",
     "build:publish": "pnpm build -- --publish",
-    "dev": "pnpm link --global && tsup --watch",
+    "dev": "pnpm link && npm link --global && tsup --watch",
     "package": "pkg --compress GZip .",
     "release": "pnpm test && pnpm build && changelogen --release --push && npm publish",
     "lint": "biome check .",

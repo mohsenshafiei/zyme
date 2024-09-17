@@ -1,11 +1,15 @@
 import { Args, Command, Flags } from "@oclif/core";
 
+const en = {
+  description: "Helps you to onboard quickly.",
+};
+
 export default class Learn extends Command {
   static override args = {
     file: Args.string({ description: "file to read" }),
   };
 
-  static override description = "Helps you to onboard quickly.";
+  static override description = en.description;
 
   static override examples = ["<%= config.bin %> <%= command.id %>"];
 
@@ -21,11 +25,7 @@ export default class Learn extends Command {
   };
 
   public async run(): Promise<void> {
-    console.log("mohsen");
     const { args, flags } = await this.parse(Learn);
-
-    if (args.file && flags.force) {
-      this.log(`you input --force and --file: ${args.file}`);
-    }
+    this.log("Not Implemented Yet", args, flags);
   }
 }

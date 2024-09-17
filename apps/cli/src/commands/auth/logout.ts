@@ -1,12 +1,16 @@
 import { Args, Command, Flags } from "@oclif/core";
 
+const en = {
+  description:
+    "Logs the user out of their zyme account, removing access to personalized settings.",
+};
+
 export default class Logout extends Command {
   static override args = {
     file: Args.string({ description: "file to read" }),
   };
 
-  static override description =
-    "Logs the user out of their zyme account, removing access to personalized settings.";
+  static override description = en.description;
 
   static override examples = ["<%= config.bin %> <%= command.id %>"];
 
@@ -19,9 +23,6 @@ export default class Logout extends Command {
 
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(Logout);
-
-    if (args.file && flags.force) {
-      this.log(`you input --force and --file: ${args.file}`);
-    }
+    this.log("Not Implemented Yet", args, flags);
   }
 }
