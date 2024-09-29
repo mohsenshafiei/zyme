@@ -1,0 +1,43 @@
+---
+title: 'learn'
+icon: 'leaf'
+description: 'Access learning resources and guides through the Zyme CLI.'
+---
+
+import { CodeBlock } from 'mintlify/components'
+
+The `zyme learn` command provides access to learning resources, tutorials, and guides directly from the CLI, making it easy for developers to enhance their knowledge without leaving their terminal.
+
+## Commands
+
+### `zyme learn`
+
+This command opens up a list of learning resources and topics available for the current project or general development topics:
+
+<CodeBlock language="bash">
+zyme learn
+</CodeBlock>
+
+Users will be prompted to select a topic or guide from the list.
+
+### `zyme learn <topic>`
+
+This command lets users directly access a specific learning topic or guide:
+
+<CodeBlock language="bash">
+{`zyme learn <topic>`}
+</CodeBlock>
+
+Replace `<topic>` with the name of the guide or resource you're interested in. For example, to learn about state management, you would run:
+
+<CodeBlock language="bash">
+zyme learn state-management
+</CodeBlock>
+
+### `zyme learn list`
+
+This command lists all available learning topics, making it easier to see what’s offered:
+
+<CodeBlock language="bash">
+zyme learn list
+</CodeBlock>

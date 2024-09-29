@@ -1,0 +1,41 @@
+---
+title: 'publish'
+icon: 'upload'
+description: 'Publish your project or plugin using the Zyme CLI.'
+---
+
+import { CodeBlock } from 'mintlify/components'
+
+The `zyme publish` command allows you to publish your project or plugin to the Zyme ecosystem, making it available for others to use or download. This is essential for sharing your work and contributing to the community.
+
+## Commands
+
+### `zyme publish`
+
+This command publishes your current project or plugin:
+
+<CodeBlock language="bash">
+zyme publish
+</CodeBlock>
+
+When run, it will bundle and upload your project or plugin to the designated platform or registry, such as npm or a private Zyme registry.
+
+### `zyme publish --dry-run`
+
+This command simulates the publish process without actually uploading anything:
+
+<CodeBlock language="bash">
+zyme publish --dry-run
+</CodeBlock>
+
+It’s useful to test the publish process to ensure everything is configured correctly before committing to a live publish.
+
+### `zyme publish --access <public|private>`
+
+This command sets the visibility of your project (either public or private) during the publish process:
+
+<CodeBlock language="bash">
+zyme publish --access public
+</CodeBlock>
+
+For example, use the above command to make your plugin publicly accessible.

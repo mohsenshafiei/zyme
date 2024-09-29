@@ -1,0 +1,53 @@
+---
+title: 'search'
+icon: "magnifying-glass"
+description: 'Search for resources, plugins, or documentation using the Zyme CLI.'
+---
+
+import { CodeBlock } from 'mintlify/components'
+
+The `zyme search` command allows you to search for various resources, such as plugins, documentation, and other relevant content within the Zyme ecosystem. This command makes it easy to find what you need without leaving the CLI.
+
+## Commands
+
+### `zyme search <query>`
+
+This command searches for resources based on the query you provide:
+
+<CodeBlock language="bash">
+{`zyme search <query>`}
+</CodeBlock>
+
+For example, to search for a plugin related to authentication, you would run:
+
+<CodeBlock language="bash">
+zyme search authentication
+</CodeBlock>
+
+### `zyme search plugins <query>`
+
+This command specifically searches for plugins within the Zyme plugin repository:
+
+<CodeBlock language="bash">
+{`zyme search plugins <query>`}
+</CodeBlock>
+
+Use this command to find and explore plugins that can extend your Zyme experience. For example, to search for plugins related to analytics, run:
+
+<CodeBlock language="bash">
+zyme search plugins analytics
+</CodeBlock>
+
+### `zyme search docs <query>`
+
+This command allows you to search the Zyme documentation for guides, tutorials, and articles:
+
+<CodeBlock language="bash">
+{`zyme search docs <query>`}
+</CodeBlock>
+
+For example, to search for documentation on environment variables, run:
+
+<CodeBlock language="bash">
+zyme search docs env
+</CodeBlock>

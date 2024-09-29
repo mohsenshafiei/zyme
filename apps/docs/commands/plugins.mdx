@@ -1,0 +1,63 @@
+---
+title: 'plugins'
+icon: 'puzzle-piece'
+description: 'Manage and explore plugins with the Zyme CLI.'
+---
+
+import { CodeBlock } from 'mintlify/components'
+
+The `zyme plugins` command allows you to manage, install, and explore plugins for the Zyme CLI, extending its functionality and integrating additional tools into your workflow.
+
+## Commands
+
+### `zyme plugins list`
+
+This command lists all installed plugins:
+
+<CodeBlock language="bash">
+zyme plugins list
+</CodeBlock>
+
+It shows a comprehensive list of all plugins currently installed in your Zyme environment.
+
+### `zyme plugins install <plugin-name>`
+
+This command installs a plugin by name:
+
+<CodeBlock language="bash">
+{`zyme plugins install <plugin-name>`}
+</CodeBlock>
+
+For example, to install a plugin named `zyme-analytics`:
+
+<CodeBlock language="bash">
+zyme plugins install zyme-analytics
+</CodeBlock>
+
+### `zyme plugins uninstall <plugin-name>`
+
+This command uninstalls a plugin by name:
+
+<CodeBlock language="bash">
+{`zyme plugins uninstall <plugin-name>`}
+</CodeBlock>
+
+For example, to uninstall the `zyme-analytics` plugin:
+
+<CodeBlock language="bash">
+zyme plugins uninstall zyme-analytics
+</CodeBlock>
+
+### `zyme plugins search <query>`
+
+This command searches the Zyme plugin repository for available plugins:
+
+<CodeBlock language="bash">
+{`zyme plugins search <query>`}
+</CodeBlock>
+
+For example, to search for analytics-related plugins:
+
+<CodeBlock language="bash">
+zyme plugins search analytics
+</CodeBlock>

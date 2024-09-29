@@ -1,0 +1,46 @@
+---
+title: 'info'
+icon: 'info'
+description: 'Get detailed information about the current project with the Zyme CLI.'
+---
+
+import { CodeBlock } from 'mintlify/components'
+
+The `zyme info` command provides detailed information about your current project, including dependencies, environment, and configurations, helping you quickly gather insights about the project's state.
+
+## Commands
+
+### `zyme info`
+
+This command displays a comprehensive summary of the current project:
+
+<CodeBlock language="bash">
+zyme info
+</CodeBlock>
+
+The summary includes:
+- List of installed dependencies
+- Environment variables
+- Project configuration files
+- Node.js and Zyme CLI versions
+
+### `zyme info --dependencies`
+
+This command focuses solely on displaying the project's installed dependencies:
+
+<CodeBlock language="bash">
+zyme info --dependencies
+</CodeBlock>
+
+Use this when you need a quick glance at the dependencies without additional project information.
+
+### `zyme info --env`
+
+This command shows all environment variables configured for the project:
+
+<CodeBlock language="bash">
+zyme info --env
+</CodeBlock>
+
+Useful for debugging issues related to environment configurations.
+

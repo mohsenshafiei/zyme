@@ -1,0 +1,35 @@
+---
+title: 'update'
+icon: 'chevron-up'
+description: 'Update the Zyme CLI or any installed plugins to the latest version.'
+---
+
+import { CodeBlock } from 'mintlify/components'
+
+The `zyme update` command is used to update the Zyme CLI or any installed plugins to their latest versions, ensuring you're always running the most recent features and security patches.
+
+## Commands
+
+### `zyme update`
+
+This command updates the Zyme CLI to the latest version:
+
+<CodeBlock language="bash">
+zyme update
+</CodeBlock>
+
+Run this regularly to stay on top of the latest changes and improvements to the CLI.
+
+### `zyme update <plugin-name>`
+
+This command updates a specific plugin to its latest version:
+
+<CodeBlock language="bash">
+{`zyme update <plugin-name>`}
+</CodeBlock>
+
+For example, to update a plugin named `zyme-analytics`:
+
+<CodeBlock language="bash">
+zyme update zyme-analytics
+</CodeBlock>

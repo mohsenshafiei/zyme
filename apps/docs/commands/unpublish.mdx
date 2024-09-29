@@ -1,0 +1,47 @@
+---
+title: 'unpublish'
+icon: 'eraser'
+description: 'Unpublish a project or plugin using the Zyme CLI.'
+---
+
+import { CodeBlock } from 'mintlify/components'
+
+The `zyme unpublish` command allows you to remove a previously published project or plugin from the Zyme ecosystem, making it unavailable for download or use. This command is useful when you need to retract a project due to issues or when it’s no longer needed.
+
+## Commands
+
+### `zyme unpublish <project-name>`
+
+This command unpublishes the specified project or plugin:
+
+<CodeBlock language="bash">
+{`zyme unpublish <project-name>`}
+</CodeBlock>
+
+For example, to unpublish a plugin named `zyme-analytics`:
+
+<CodeBlock language="bash">
+zyme unpublish zyme-analytics
+</CodeBlock>
+
+This command will remove the project from the registry or platform where it was published.
+
+### `zyme unpublish --force`
+
+Use the `--force` flag to forcefully unpublish a project, bypassing any confirmations:
+
+<CodeBlock language="bash">
+{`zyme unpublish <project-name> --force`}
+</CodeBlock>
+
+This option is useful when you need to unpublish quickly without manual intervention.
+
+### `zyme unpublish --dry-run`
+
+The `--dry-run` option allows you to simulate the unpublish process without actually removing the project:
+
+<CodeBlock language="bash">
+{`zyme unpublish <project-name> --dry-run`}
+</CodeBlock>
+
+This is helpful if you want to ensure that everything is configured properly before performing the actual unpublish.
