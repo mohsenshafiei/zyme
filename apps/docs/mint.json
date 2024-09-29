@@ -1,0 +1,68 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Zyme",
+  "logo": {
+    "dark": "/logo/dark.svg",
+    "light": "/logo/light.svg"
+  },
+  "favicon": "/logo/dark.svg",
+  "colors": {
+    "primary": "#000",
+    "light": "#ffffff",
+    "dark": "#0D9373",
+    "anchors": {
+      "from": "#0D9373",
+      "to": "#07C983"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "Support",
+      "url": "mailto:support@zyme.com"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Give Star",
+    "url": "https://github.com/mohsenshafiei/zyme"
+  },
+  "tabs": [
+    {
+      "name": "Blog",
+      "url": "api-reference1"
+    },
+    {
+      "name": "Join Community",
+      "url": "api-reference2"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Get Started",
+      "pages": ["overview", "quickstart", "features"]
+    },
+    {
+      "group": "Commands",
+      "icon": "terminal",
+      "pages": [
+        "commands/auth",
+        "commands/dependencies",
+        "commands/env",
+        "commands/feedback",
+        "commands/info",
+        "commands/learn",
+        "commands/plugins",
+        "commands/publish",
+        "commands/search",
+        "commands/unpublish",
+        "commands/update",
+        "commands/whatsnew",
+        "commands/whoami"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "x": "https://x.com/zyme",
+    "github": "https://github.com/mohsenshafiei/zyme",
+    "linkedin": "https://www.linkedin.com/company/mintsearch"
+  }
+}

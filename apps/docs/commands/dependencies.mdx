@@ -1,0 +1,42 @@
+---
+title: 'dependencies'
+icon: 'paperclip'
+description: 'Manage and analyze dependencies with the Zyme CLI.'
+---
+
+import { CodeBlock } from 'mintlify/components'
+
+The `zyme dependencies` command helps you manage and analyze the dependencies in your project, making it easier to track and understand which packages are being used.
+
+## Commands
+
+### `zyme dependencies list`
+
+This command lists all the dependencies in your project:
+
+<CodeBlock language="bash">
+zyme dependencies list
+</CodeBlock>
+
+It provides a comprehensive list of both direct and transitive dependencies, giving you full visibility into your project's dependencies.
+
+### `zyme dependencies outdated`
+
+This command shows which dependencies are outdated and need updates:
+
+<CodeBlock language="bash">
+zyme dependencies outdated
+</CodeBlock>
+
+Keeping dependencies up-to-date ensures you’re using the latest features and security patches.
+
+### `zyme dependencies update`
+
+This command updates outdated dependencies to the latest version:
+
+<CodeBlock language="bash">
+zyme dependencies update
+</CodeBlock>
+
+Use this command to quickly bring your dependencies up-to-date, ensuring your project is running on the latest versions.
+
