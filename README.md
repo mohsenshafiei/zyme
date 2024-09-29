@@ -1,13 +1,6 @@
-<h1 align="center">⚡️ ZYME</h1>
-<p align="center">
-  <sup>(/zaɪm/, *refers to a component that promotes a specific reaction.*)</sup>
-</p>
-
 <div align="center">
   <img src="/public/hero-light.svg" alt="Hero Light" style="max-width: 100%; width: 100%;" />
 </div>
-
-<div align="center"><strong>Onboarding at Lightning Speed</strong></div>
 
 ## 🚧 Project Status: Under Development 🚧
 
