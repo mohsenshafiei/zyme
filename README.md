@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="/public/hero-light.svg" alt="Hero Light" style="max-width: 100%; width: 100%;" />
+  <img src="/public/hero.svg" alt="Hero Light" style="max-width: 100%; width: 100%;" />
 </div>
 
 ## 🚧 Project Status: Under Development 🚧
